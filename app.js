@@ -5,6 +5,12 @@ const schoolRoutes = require('./routes/schoolRoutes');
 const app = express();
 
 app.use(express.json()); // for parsing JSON
+
+// ✅ Add this route so something shows in browser
+app.get('/', (req, res) => {
+  res.send('✅ School Management API is running successfully!');
+});
+
 app.use('/', schoolRoutes); // mount routes
 
 const PORT = process.env.PORT || 3000;
